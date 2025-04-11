@@ -1,0 +1,443 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JBMB</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Base styling */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #151f28;
+      color: white;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: url('https://t3.ftcdn.net/jpg/03/90/53/94/360_F_390539492_oWAdUjNIVDM7q5ykmDkY74JahTgYctoH.jpg') center/cover no-repeat;
+      height: 250px;
+      position: relative;
+      border-top: 3.5px solid #AB8737;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      filter: blur(1.5px);
+      z-index: 0;
+    }
+
+    header::after {
+      content: "JBMB";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 7.5em;
+      font-weight: bold;
+      color: white;
+      filter: none;
+      z-index: 1;
+    }
+
+    .logo {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      width: 80px;
+      height: 80px;
+      background: url('images/logo.png') no-repeat center/contain;
+      z-index: 2;
+    }
+
+    nav {
+      background-color: #071330;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      border-top: 3.5px solid #AB8737;
+      border-bottom: 3.5px solid #AB8737;
+    }
+
+    nav a {
+      padding: 1rem 2rem;
+      color: white;
+      text-decoration: none;
+      transition: 0.3s ease;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      background-color: #AB8737;
+      color: #151f28;
+    }
+
+    section {
+      padding: 3.5rem;
+      padding-top: 1em;
+      padding-bottom: 1em;
+    }
+
+    h2 {
+      font-size: 3em;
+      margin-bottom: 1rem;
+      text-align: center;
+      background-color: #AB8737;
+      color: #071330;
+      font-weight: bolder;
+    }
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: 1.6em;
+      border-bottom: 2px solid #AB8737;
+      line-height: 1.2;
+    }
+
+    /* About Section */
+    .about {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.about-img {
+  flex: 1;
+  max-width: 25%;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-img img {
+  max-width: 100%;
+  border: 3.5px solid #AB8737;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.about-text {
+  max-width: 75%;
+}
+
+.about-text p {
+  font-size: 1.25em;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+.about-caption {
+  text-align: center;
+  margin-top: 0.3rem;
+  font-weight: bold;
+  margin-bottom: 0;
+  font-size: 1.6em;
+}
+
+/* ✅ Responsive adjustments */
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-img,
+  .about-text {
+    max-width: 100%;
+  }
+
+  .about-text p {
+    font-size: 1.1em;
+  }
+}
+
+    /* Education */
+    .education-box {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+      border: 3.5px solid #AB8737;
+      padding: 1em;
+      gap: 1em;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .education-box:hover {
+      transform: scale(1.01);
+      box-shadow: 5px 5px 10px #AB8737;
+    }
+
+    .education-box img {
+      width: 120px;
+      height: 120px;
+    }
+
+    .education-box:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .education-content p {
+      font-size: 1.25em;
+      margin-top: 0;
+      margin-bottom: 0;
+      line-height: 1.4;
+      text-align: justify;
+    }
+
+    /* Portfolio */
+    .portfolio ul {
+      list-style: circle;
+      padding-left: 2em;
+      font-size: 1.25em;
+      line-height: 1.4;
+    }
+
+    .portfolio li {
+      transition: 0.3s ease;
+    }
+
+    .portfolio li:hover {
+      color: #AB8737;
+      font-weight: bold;
+    }
+
+    /* Contacts */
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2em;
+      justify-content: center;
+    }
+
+    .contact-box {
+      border: 3.5px solid #AB8737;
+      padding: 1rem;
+      max-width: 350px;
+      min-width: 350px;
+      transition: transform 0.3s ease;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    .contact-box:hover {
+      transform: scale(1.01);
+    }
+
+    .contact-box a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      font-size: 1.25em;
+      line-height: 1.4;
+    }
+
+    .contact-box a:hover {
+      color: #AB8737;
+      font-weight: bold;
+    }
+
+    /* Go back button */
+    .go-back {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #AB8737;
+      color: black;
+      padding: 0.4em;
+      padding-top: 0;
+      padding-bottom: 0;
+      border: 3px solid #071330;
+      border-radius: 50%;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 2em;
+    }
+
+    footer {
+      background: url('https://t3.ftcdn.net/jpg/03/90/53/94/360_F_390539492_oWAdUjNIVDM7q5ykmDkY74JahTgYctoH.jpg') center/cover no-repeat;
+      height: 80px;
+      position: relative;
+      border-top: 3.5px solid #AB8737;
+      border-bottom: 3.5px solid #AB8737;
+      margin-top: 2em;
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      filter: blur(1.5px);
+      z-index: 0;
+    }
+
+    footer::after {
+      content: "All Rights Reserved.";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.25em;
+      font-weight: bold;
+      color: white;
+      filter: none;
+      z-index: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #about {
+        flex-direction: column;
+      }
+
+      .education-box {
+        flex-direction: column !important;
+        text-align: center;
+      }
+
+      .education-box img {
+        margin: 0 auto 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo"></div>
+  <header></header>
+
+  <nav>
+    <a href="#about">ABOUT</a>
+    <a href="#education">EDUCATION</a>
+    <a href="#portfolio">PORTFOLIO</a>
+    <a href="#contacts">CONTACTS</a>
+  </nav>
+
+  <h2 id="about">ABOUT</h2>
+  <section class="about">
+    <div class="about-img">
+      <img src="images/self-portrait.jpg" alt="The Proponent">
+      <div class="about-caption">The Proponent</div>
+    </div>
+
+    <div class="about-text">
+      <h3>About the Proponent</h3>
+      <p>John Benedict Mamaril Bal-ut, also known as JB, was born on June 29, 2006 (now, 18 years old). He is a student currently living in Camarin, Caloocan City, Philippines. He is currently taking Bachelor of Science in Information Technology (BSIT) at Our Lady of Fatima University (OLFU).</p>
+      <br>
+      <h3>His Characteristics</h3>
+      <p>Some of his notable characteristics are being organized in workspace and having the ability to manage time and workloads effectively and efficiently. Most of his hobbies are inclined with video games, watching movies and series, and listening to music. He is mostly known for his notable penmanship as many people including his friends, family, and teachers find it visually appealing. He values creativity and effort when working on projects and outputs as he wants his works to have a good quality.</p>
+    </div>
+    
+  </section>
+
+  <h2 id="education">EDUCATION</h2>
+  <section class="education">
+    
+    <div class="education-box">
+      <img src="images/prep-logo.png" alt="School 1">
+      <div class="education-content">
+        <h3>Escuelahan Preparatoria De Maza</h3>
+        <p>A Preparatory School located in Bagong Silang, Caloocan City, Philippines. He spent less than a year in this school and graduated on March 2012 at the age of 6. He finished as the Rank 3 of his class.</p>
+      </div>
+    </div>
+
+    <div class="education-box">
+      <img src="images/ces-logo.jpg" alt="School 2">
+      <div class="education-content">
+        <h3>Camarin Elementary School (CES)</h3>
+        <p>An Elementary School located in Camarin, Caloocan City, Philippines. He spent six years in this school and graduated on April 2018 at the age of 11 with Honors. He was also a consistent Section-1 student and experienced running for the position of Student Supreme Government (SSG) Councilor.</p>
+      </div>
+    </div>
+
+    <div class="education-box">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_bsEcOctsa1NHAp74hNtMerS-Td4vQCa10Q&s" alt="School 3">
+      <div class="education-content">
+        <h3>Caloocan National Science and Technology High School (CNSTHS)</h3>
+        <p>Integrated Science High School located in Bagumbong, Caloocan City, Philippines. He spent four years as a Junior Student and two years as a Senior Student. He graduated on May 2024 at the age of 17 with High Honors. He finished as the Rank 18 out of 160 students. Also, he was a consistent honor student from his 7th grade up to his 12th grade. He took the STEM strand.</p>
+      </div>
+    </div>
+
+    <div class="education-box">
+      <img src="images/olfu-logo.jpg" alt="School 4">
+      <div class="education-content">
+        <h3>Our Lady of Fatima University (OLFU)</h3>
+        <p>A Private University located in Lagro, Quezon City, Philippines. He is currently taking a four-year program of Bachelor of Science in Information Technology (BSIT) and is expected to graduate by mid 2028 at the age of 22.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <h2 id="portfolio">PORTFOLIO</h2>
+  <section class="portfolio">
+    <h3>Achievements</h3>
+    <ul>
+        <li>Preparatory Graduate, Rank 3 (2012)</li>
+        <li>Elementary Graduate, With Honors (2018)</li>
+        <li>Campus Journalist - Pagsulat ng Balita, District Awardee, Rank 1 (2018)</li>
+        <li>Campus Journalist - Pagsulat ng Balita, Divisional Qualifier (2018)</li>
+        <li>Caloocan National Science and Technology High School (CNSTHS) Admission Test Passer (2018)</li>
+        <li>Caloocan National Science and Technology High School (CNSTHS) Interview Passer (2018)</li>
+        <li>Caloocan City Business High School (CCBHS) Admission Test Passer (2018)</li>
+        <li>Caloocan City Business High School (CCBHS) Interview Passer (2018)</li>
+        <li>Junior High School, With Honors (2019-2022)</li>
+        <li>Junior High School Completer (2022)</li>
+        <li>Far Eastern University College Admissions Test (FEU-CAT) Passer (2023)</li>
+        <li>Senior High School, With Honors (2023)</li>
+        <li>Senior High School, With High Honors (2024)</li>
+        <li>Senior High School Graduate, Rank 18 out of 160 (2024)</li>
+        <li>College, Dean’s Lister (2025)</li>
+    </ul>
+
+    <h3>Experiences</h3>
+    <ul>
+        <li>Candidate for Supreme Student Government (SSG) Councilor (2018)</li>
+        <li>Classroom Secretary (2020, 2024)</li>
+        <li>Classroom Assistant Secretary (2017-2019, 2023)</li>
+        <li>History Club Pageant Organizer (2023)</li>
+        <li>History Club Secretary (2023-2024)</li>
+        <li>Web Development Classroom Assistant Leader (2025)</li>
+    </ul>
+  </section>
+
+  <h2 id="contacts">CONTACTS</h2>
+  <section class="contacts">
+    
+    <div class="contact-container">
+      <div class="contact-box">
+        <h3>Phone</h3>
+        <a href="tel:+639271521745">+63 927 152 1745 (Globe)</a>
+        <a href="tel:+639927228135">+63 992 722 8135 (Dito)</a>
+      </div>
+      <div class="contact-box">
+        <h3>Email</h3>
+        <a href="mailto:jbmbalut@gmail.com">jbmbalut@gmail.com</a>
+        <a href="mailto:johnbenedict.balut.29@gmail.com">johnbenedict.balut.29@gmail.com</a>
+      </div>
+      <div class="contact-box">
+        <h3>Socials</h3>
+        <a href="https://www.facebook.com/share/1Fg4AUN1gK/">Facebook: John Benedict Bal-ut</a>
+        <a href="https://instagram.com/jebiwockeez_" target="_blank">Instagram: jebiwockeez_</a>
+      </div>
+    </div>
+  </section>
+
+  <a href="#top" class="go-back">^</a>
+
+  <footer></footer>
+</body>
+</html>
